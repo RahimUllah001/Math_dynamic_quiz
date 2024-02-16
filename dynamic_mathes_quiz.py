@@ -4,7 +4,7 @@ operaters = ["+", "-", "*", "/"]
 
 min_operand = 3
 miax_operand = 12
-total_problems = 10
+total_problems = 5
 
 def generate_problem():
 
@@ -21,23 +21,29 @@ def generate_problem():
     return exp, answer
 
 
-wrong = 0
+correct = 0
 print("------------------------------")
-print("please enter to start")
+input("please enter to start")
 
 start_time = time.time()
 for i in range(total_problems):
     expression,answer = generate_problem()
 
     while True:
-        guess = input(f"Problem # {i+1} {expression} = ")
+        guess = input(f"Problem #{i+1} :  {expression} = ")
 
-        if guess == str(answer):
+        if guess == str(answer): 
+            print("correct")
+            correct += 1
+            break
+        else:
+            print("wrong")
             break
 
 
 end_time = time.time()
 
-total_time = end_time - start_time
+total_time = round(end_time - start_time,2)
 print("----------------------------------")
-print(f"Nice works you finished total_time = {total_time}")
+print(f"Nice works you finished total_time = {total_time}seconds")
+print(f"your marks {correct} / {total_problems}")
